@@ -1,6 +1,8 @@
 name: Create Release on Tag
 permissions:
   contents: write
+  id-token: write
+
 
 on:
   push:
