@@ -1,6 +1,6 @@
 [project]
 name = "chatterbox-ng"
-version = "0.1.7"
+dynamic = ["version"]
 description = "Chatterbox: Open Source TTS and Voice Conversion by Resemble AI"
 readme = "README.md"
 requires-python = ">=3.14.3,<3.15.0"
