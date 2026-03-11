@@ -224,7 +224,6 @@ wheels = [
 
 [[package]]
 name = "chatterbox-ng"
-version = "0.1.7"
 source = { editable = "." }
 dependencies = [
     { name = "conformer" },
