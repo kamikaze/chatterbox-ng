@@ -77,6 +77,7 @@ class T3HuggingfaceBackend(LlamaPreTrainedModel, GenerationMixin):
         output_attentions=None,
         output_hidden_states=True,
         return_dict=True,
+        **kwargs
     ):
         """
         This is a method used by huggingface's generate() method.

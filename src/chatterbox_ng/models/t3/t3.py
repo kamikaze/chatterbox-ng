@@ -276,10 +276,10 @@ class T3(nn.Module):
             # Default to None for English models, only create for multilingual
             alignment_stream_analyzer = None
             if self.hp.is_multilingual:
-                # IMPORTANT: Switch to eager implementation BEFORE creating AlignmentStreamAnalyzer
-                # to avoid warnings and errors about SDPA not supporting output_attentions.
-                self.cfg._attn_implementation = 'eager'
+                # IMPORTANT: Switch to output_attentions=True for AlignmentStreamAnalyzer.
+                # Eager implementation is already set in llama_configs.py to avoid SDPA warnings.
                 self.cfg.output_attentions = True
+                self.tfmr.config.output_attentions = True
 
                 alignment_stream_analyzer = AlignmentStreamAnalyzer(
                     self.tfmr,
@@ -345,7 +345,7 @@ class T3(nn.Module):
             inputs_embeds=inputs_embeds,
             past_key_values=None,
             use_cache=True,
-            output_attentions=True,
+            output_attentions=self.cfg.output_attentions,
             output_hidden_states=True,
             return_dict=True,
         )
@@ -404,7 +404,7 @@ class T3(nn.Module):
             output = self.patched_model(
                 inputs_embeds=next_token_embed,
                 past_key_values=past,
-                output_attentions=True,
+                output_attentions=self.cfg.output_attentions,
                 output_hidden_states=True,
                 return_dict=True,
             )
