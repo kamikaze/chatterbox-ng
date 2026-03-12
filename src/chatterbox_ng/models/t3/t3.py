@@ -276,11 +276,6 @@ class T3(nn.Module):
             # Default to None for English models, only create for multilingual
             alignment_stream_analyzer = None
             if self.hp.is_multilingual:
-                # IMPORTANT: Switch to output_attentions=True for AlignmentStreamAnalyzer.
-                # Eager implementation is already set in llama_configs.py to avoid SDPA warnings.
-                self.cfg.output_attentions = True
-                self.tfmr.config.output_attentions = True
-
                 alignment_stream_analyzer = AlignmentStreamAnalyzer(
                     self.tfmr,
                     None,
