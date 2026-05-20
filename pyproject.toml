@@ -4,15 +4,15 @@ dynamic = ["version"]
 description = "Chatterbox: Open Source TTS and Voice Conversion by Resemble AI"
 readme = "README.md"
 requires-python = ">=3.14.4,<3.15.0"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 authors = [
-    {name = "resemble-ai", email = "engineering@resemble.ai"}
+    { name = "resemble-ai", email = "engineering@resemble.ai" }
 ]
 dependencies = [
     "conformer~=0.3.2",
     "diffusers~=0.37.1",
     "librosa~=0.11.0",
-    "numpy~=2.4.4",
+    "numpy~=2.4.6",
     "omegaconf~=2.3.0",
     "pykakasi~=2.3.0",
     "pyloudnorm~=0.2.0",
@@ -20,15 +20,15 @@ dependencies = [
     "safetensors~=0.7.0",
     "spacy-pkuseg~=1.0.1",
     "torchaudio~=2.11.0",
-    "torchcodec~=0.11.1",
-    "torch~=2.11.0",
-    "transformers~=5.6.1",
+    "torchcodec~=0.12.0",
+    "torch~=2.12.0",
+    "transformers~=5.8.1",
 ]
 
 [dependency-groups]
 dev = [
     "build",
-    "gradio~=6.13.0",
+    "gradio~=6.14.0",
     "pip",
     "pre-commit",
     "pyright",
